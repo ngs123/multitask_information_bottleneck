@@ -82,6 +82,3 @@ The real-image dSprites check needs the prepared cache. Run the notebook command
 above to validate figure regeneration against local saved results. These checks
 do not perform full scientific retraining.
 
-Appendix training details and Gaussian-solver complexity are documented in
-[the LaTeX methods fragment](docs/appendix_methods.tex), with
-[source references and author checks](docs/appendix_methods_notes.md).

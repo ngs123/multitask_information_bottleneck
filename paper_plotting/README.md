@@ -91,10 +91,10 @@ python -m unittest discover -s paper_plotting/tests -v
 
 ## Curated Experiment Details appendix
 
-`paper_figures/appendix/` contains exactly the 17 publication assets referenced
-by `../docs/appendix_methods.tex` (15 PDFs and two LaTeX tables). Rebuild with
-`python paper_plotting/prepare_appendix.py` from the repository root. Numerical
-provenance and asset hashes are written to `../docs/appendix_values.json`.
+`paper_figures/appendix/` contains 17 publication assets (15 PDFs and two LaTeX
+tables). The optional `prepare_appendix.py` builder requires local manuscript
+files that are not included in this repository. These files are not needed for
+experiment training or the main plotting notebook.
 
 This bundle includes the completed role swap, covariance spectra derived from
 saved training features, and fine-tuned measured-NLL curves recovered from saved
