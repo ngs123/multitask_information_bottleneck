@@ -1,0 +1,272 @@
+{
+  "specialist": "joint_attributes",
+  "generalist": "reconstruction",
+  "gaussian_source": "/home2/ngstiles/projects/multitask_information_bottleneck/celeba_experiment/runs/robust_rate_selection/robustness/gaussian_nll_test_bootstrap.npz",
+  "codes_source": "/home2/ngstiles/projects/multitask_information_bottleneck/celeba_experiment/runs/robust_rate_selection/robustness/quantized_nll_seeds_test_bootstrap.npz",
+  "gaussian_metric": "measured",
+  "task_weights": [
+    0.25,
+    0.25,
+    0.25,
+    0.25
+  ],
+  "bootstrap_draws": {
+    "gaussian": 2000,
+    "codes": 2000
+  },
+  "run_config": {
+    "seed": 42,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "backbone": "resnet18_imagenet1k_v1",
+    "threads": 4,
+    "data": {
+      "root": "../data",
+      "download": true,
+      "max_train": 10000,
+      "max_valid": 2000,
+      "max_test": 2000,
+      "views_per_policy": 2,
+      "batch_size": 64,
+      "workers": 2
+    },
+    "tasks": {
+      "reduced": true,
+      "names": [
+        "Smiling",
+        "Eyeglasses",
+        "Blond_Hair",
+        "Young"
+      ]
+    },
+    "input_dim": 32,
+    "target_dim": 32,
+    "representations": [
+      "gaussian",
+      "quantized"
+    ],
+    "fit_modes": [
+      "task",
+      "pretext"
+    ],
+    "policies": [
+      {
+        "name": "weak",
+        "crop_scale": [
+          0.9,
+          1.0
+        ],
+        "jitter": 0.1,
+        "flip": 0.5
+      },
+      {
+        "name": "gray",
+        "crop_scale": [
+          0.9,
+          1.0
+        ],
+        "jitter": 0.1,
+        "grayscale": true,
+        "flip": 0.5
+      },
+      {
+        "name": "coarse_color",
+        "crop_scale": [
+          0.9,
+          1.0
+        ],
+        "jitter": 0.0,
+        "low_resolution": 16,
+        "blur_sigma": [
+          1.0,
+          2.0
+        ],
+        "flip": 0.5
+      },
+      {
+        "name": "upper",
+        "region": "upper",
+        "crop_scale": [
+          0.9,
+          1.0
+        ],
+        "jitter": 0.1,
+        "flip": 0.5
+      },
+      {
+        "name": "lower",
+        "region": "lower",
+        "crop_scale": [
+          0.9,
+          1.0
+        ],
+        "jitter": 0.1,
+        "flip": 0.5
+      },
+      {
+        "name": "mixed_regions",
+        "region": "mixed",
+        "crop_scale": [
+          0.9,
+          1.0
+        ],
+        "jitter": 0.1,
+        "flip": 0.5
+      }
+    ],
+    "pretexts": [
+      {
+        "name": "lower_prediction",
+        "target": "lower",
+        "objective": "gaussian_nll"
+      },
+      {
+        "name": "gray_prediction",
+        "target": "gray",
+        "objective": "gaussian_nll"
+      },
+      {
+        "name": "reconstruction",
+        "target": "anchor",
+        "objective": "gaussian_nll"
+      },
+      {
+        "name": "expression_attributes",
+        "objective": "attribute_bce",
+        "attributes": [
+          "Mouth_Slightly_Open",
+          "High_Cheekbones"
+        ]
+      },
+      {
+        "name": "hair_attributes",
+        "objective": "attribute_bce",
+        "attributes": [
+          "Wavy_Hair",
+          "Straight_Hair",
+          "Receding_Hairline"
+        ]
+      },
+      {
+        "name": "joint_attributes",
+        "objective": "attribute_bce",
+        "attributes": [
+          "Mouth_Slightly_Open",
+          "High_Cheekbones",
+          "Wavy_Hair",
+          "Straight_Hair",
+          "Receding_Hairline"
+        ]
+      },
+      {
+        "name": "semantic_reconstruction",
+        "objective": "composite",
+        "components": [
+          {
+            "objective": "attribute_bce",
+            "attributes": [
+              "Mouth_Slightly_Open",
+              "High_Cheekbones",
+              "Wavy_Hair",
+              "Straight_Hair",
+              "Receding_Hairline"
+            ],
+            "weight": 0.5
+          },
+          {
+            "objective": "gaussian_nll",
+            "target": "anchor",
+            "weight": 0.5
+          }
+        ]
+      },
+      {
+        "name": "two_region_prediction",
+        "objective": "composite",
+        "components": [
+          {
+            "objective": "gaussian_nll",
+            "target": "upper",
+            "weight": 0.5
+          },
+          {
+            "objective": "gaussian_nll",
+            "target": "lower",
+            "weight": 0.5
+          }
+        ]
+      }
+    ],
+    "task_proxy": {
+      "folds": 5,
+      "ridge": 0.001,
+      "variance_floor": 0.0001
+    },
+    "probes": {
+      "C_grid": [
+        0,
+        0.1,
+        1,
+        10
+      ],
+      "fit_fraction": 0.8,
+      "max_iter": 300
+    },
+    "gaussian": {
+      "rates": [
+        0,
+        0.25,
+        1,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "rho_max": 0.99,
+      "noise_draws": 2,
+      "gap_tolerance": 1e-05,
+      "max_iterations": 3000,
+      "allow_unconverged": false
+    },
+    "quantized": {
+      "bits": [
+        0,
+        2,
+        4,
+        8,
+        16,
+        32
+      ],
+      "epochs": 30,
+      "batch_size": 256,
+      "hidden_dim": 128,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "temperature": 0.2
+    },
+    "robustness": {
+      "enabled": true,
+      "specialist": "expression_attributes",
+      "generalist": "reconstruction",
+      "moment_resamples": 200,
+      "test_resamples": 2000,
+      "confidence": 0.95,
+      "seed": 93043,
+      "mlp": {
+        "enabled": true,
+        "hidden_dim": 64,
+        "epochs": 100,
+        "patience": 10,
+        "alpha": 0.0001,
+        "learning_rate": 0.001
+      }
+    },
+    "device": "cuda:1"
+  }
+}

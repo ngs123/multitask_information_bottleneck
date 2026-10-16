@@ -1,0 +1,16 @@
+# Shared training, diagnostics, and paper plotting dependencies.
+# Install a CUDA-compatible torch/torchvision pair first on GPU machines.
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+pandas>=2.0
+torch>=2.2
+torchvision>=0.17
+gdown>=5
+scikit-learn>=1.4
+pillow>=10
+threadpoolctl>=3
+# Notebook UI and command-line execution.
+jupyterlab>=4
+nbconvert>=7
+ipykernel>=6

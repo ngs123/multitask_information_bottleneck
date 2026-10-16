@@ -1,0 +1,1 @@
+Seed-averaged indices computed per run before averaging; bold gaps bracket an observed reversal. Per-seed values and crossovers are reported separately. The sum of indices is not mutual information or a rate lower bound; excess over the KL bound diagnoses the limits of the Gaussian index for discrete factors.

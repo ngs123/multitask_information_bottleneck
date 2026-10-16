@@ -1,0 +1,42 @@
+{
+  "Ms": [
+    4
+  ],
+  "pretexts": [
+    "specialist1",
+    "specialist2",
+    "reconstruction",
+    "mixture"
+  ],
+  "betas": [
+    0.2,
+    0.01
+  ],
+  "seeds": [
+    0
+  ],
+  "lrs": [
+    0.001
+  ],
+  "image_size": 64,
+  "renderer": "linear",
+  "width": 4,
+  "epochs": 2,
+  "probe_epochs": 2,
+  "batch_size": 32,
+  "n_train": 128,
+  "n_val": 64,
+  "n_probe": 128,
+  "n_test": 64,
+  "eval_draws": 2,
+  "probe_lr": 0.001,
+  "recon_variance": 4096.0,
+  "cpu_threads": 2,
+  "dataset": "dsprites",
+  "recon_loss": "bce",
+  "data_dir": "data/dsprites",
+  "factors": [
+    "posX",
+    "posY"
+  ]
+}

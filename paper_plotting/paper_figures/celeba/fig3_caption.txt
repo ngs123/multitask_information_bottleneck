@@ -1,0 +1,35 @@
+Gaussian nominal rate and binary-code budget are distinct quantities. Moment bands, when selected, describe Gaussian-proxy distortion and are not intervals for measured NLL. Measured excess NLL subtracts the fitted uncompressed probe, not the Bayes loss. Crossover intervals and medians condition on a positive-to-negative crossing; fractions and all point-curve roots are reported in the JSON. Ranks exclude zero rate, task_aware, and average_task. The dotted orange task-aware curves show the Gaussian solution on the left and the trained task-aware code baseline on the right; the trained baseline is not a certified global optimum. D_miss is a proxy asymptote, not a measured-NLL floor.
+{
+  "gaussian": {
+    "point": 16.818155915239572,
+    "roots": [
+      16.818155915239572
+    ],
+    "n_draws": 2000,
+    "crossing_fraction": 1.0,
+    "conditional_median": 16.820702524010244,
+    "conditional_ci": [
+      14.647871627955585,
+      19.42407400951424
+    ],
+    "multiple_crossings": 0
+  },
+  "codes": {
+    "point": 21.2034588150751,
+    "roots": [
+      21.2034588150751
+    ],
+    "n_draws": 2000,
+    "crossing_fraction": 1.0,
+    "conditional_median": 21.17617838552065,
+    "conditional_ci": [
+      16.32148022196372,
+      25.01281799932733
+    ],
+    "multiple_crossings": 0
+  }
+}
+D_miss (fitted proxy) = 0.21519453065140665 bits.
+test: 95% pointwise percentile bands over 2000 paired test-image resamples conditional on fitted Gaussian channels; rates=[0.0, 0.25, 1.0, 2.0, 4.0, 8.0, 16.0, 32.0].
+codes: 95% pointwise percentile bands over 2000 paired training-seed and test-image resamples; rates=[0.0, 2.0, 4.0, 8.0, 16.0, 32.0].
+Endpoint ranks (zero excluded): [{"panel": "gaussian", "kendall_tau_b": 0.3571428571428571, "reversed_pairs": 9, "comparable_untied_pairs": 28, "total_pairs": 28, "max_rank_change": 6.0}, {"panel": "codes", "kendall_tau_b": 0.07142857142857142, "reversed_pairs": 13, "comparable_untied_pairs": 28, "total_pairs": 28, "max_rank_change": 4.0}]

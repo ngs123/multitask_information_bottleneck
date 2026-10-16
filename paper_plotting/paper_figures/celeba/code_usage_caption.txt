@@ -1,0 +1,1 @@
+60 pages, one per candidate/budget/seed. Test-image occupancy of observed codewords; unobserved codewords are excluded. Sparse occupancy limits plug-in entropy estimates.

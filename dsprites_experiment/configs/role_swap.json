@@ -1,0 +1,53 @@
+{
+  "Ms": [
+    4
+  ],
+  "pretexts": [
+    "mixture"
+  ],
+  "betas": [
+    0.8,
+    0.4,
+    0.3,
+    0.2,
+    0.15,
+    0.1,
+    0.05,
+    0.02,
+    0.01,
+    0.005,
+    0.002,
+    0.001,
+    0.0005,
+    0.0002
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "lrs": [
+    0.001
+  ],
+  "image_size": 64,
+  "renderer": "linear",
+  "width": 8,
+  "epochs": 100,
+  "probe_epochs": 80,
+  "batch_size": 256,
+  "n_train": 32768,
+  "n_val": 4096,
+  "n_probe": 16384,
+  "n_test": 8192,
+  "eval_draws": 8,
+  "probe_lr": 0.001,
+  "recon_variance": 4096.0,
+  "cpu_threads": 4,
+  "dataset": "dsprites",
+  "recon_loss": "bce",
+  "data_dir": "data/dsprites",
+  "factors": [
+    "posY",
+    "posX"
+  ]
+}

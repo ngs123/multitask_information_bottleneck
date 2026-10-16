@@ -1,0 +1,30 @@
+{
+  "gaussian": {
+    "point": 16.818155915239572,
+    "roots": [
+      16.818155915239572
+    ],
+    "n_draws": 2000,
+    "crossing_fraction": 1.0,
+    "conditional_median": 16.820702524010244,
+    "conditional_ci": [
+      14.647871627955585,
+      19.42407400951424
+    ],
+    "multiple_crossings": 0
+  },
+  "codes": {
+    "point": 21.2034588150751,
+    "roots": [
+      21.2034588150751
+    ],
+    "n_draws": 2000,
+    "crossing_fraction": 1.0,
+    "conditional_median": 21.17617838552065,
+    "conditional_ci": [
+      16.32148022196372,
+      25.01281799932733
+    ],
+    "multiple_crossings": 0
+  }
+}

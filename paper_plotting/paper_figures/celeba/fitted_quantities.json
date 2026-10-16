@@ -1,0 +1,19 @@
+{
+  "dimension": 32,
+  "specialist_rank": 5,
+  "task_snr": [
+    0.41475994240152125,
+    0.7374353125125,
+    0.8841887291188328,
+    0.37563807107389396
+  ],
+  "delta_uniform_subspace": 0.018192205830921942,
+  "D_miss_bits": 0.21519453065140665,
+  "isotropic_generalist_sufficient_rate_bound": 16.244738493105196,
+  "specialist_components_isotropic_on_support": false,
+  "uniform_reference_hypotheses": true,
+  "scope": "Delta tests a uniform-on-S reference. A fitted anisotropic specialist need not obey that low-rate criterion. The threshold is a sufficient bound for isotropic reconstruction to beat D_miss, not an estimate of the crossing.",
+  "generalist_components_isotropic_full_space": false,
+  "specialist": "joint_attributes",
+  "generalist": "reconstruction"
+}

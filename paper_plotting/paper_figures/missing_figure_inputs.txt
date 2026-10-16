@@ -1,0 +1,6 @@
+null_control: /home2/ngstiles/projects/multitask_information_bottleneck/dsprites_experiment/runs/dsprites_null_control/summary/selected_runs.csv (requires new training)
+whitening spectrum: input not configured
+shrinkage sensitivity: input not configured
+constructed worst case: input not configured
+SNR-cap sweep: input not configured
+fine-tuned replication: input not configured

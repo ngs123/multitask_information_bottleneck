@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+.pytest_cache/
+/supplement/
+*.zip
+/.agents/
+/.aws/
+/.codex/
+/celeba_experiment/data/
+/celeba_experiment/cache/
+/celeba_experiment/runs/
+/dsprites_experiment/data/
+/dsprites_experiment/cache/
+/dsprites_experiment/runs/
